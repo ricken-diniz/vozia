@@ -1,3 +1,6 @@
-time
-json
-whisper
+'git+https://github.com/openai/whisper.git'
+pydantic
+langchain_core
+langchain
+langchain_openai
+pytest

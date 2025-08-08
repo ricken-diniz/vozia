@@ -4,6 +4,7 @@ import time
 def transcritor(audio_path):
     model = whisper.load_model("small")  # pode ser 'base', 'small', 'medium', 'large'
     result = model.transcribe(audio_path)
+    print(f'Audio transcrito: {result['text']}')
     return result["text"]
 
 def main():
