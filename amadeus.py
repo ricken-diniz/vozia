@@ -8,10 +8,12 @@ load_dotenv()
 def get_access_token():
     API_KEY = os.environ.get('AMADEUS_API')
     API_SECRET = os.environ.get('AMADEUS_SECRET')
-    url_request_token = 'https://test.api.amadeus.com/v1/security/oauth2/token'
+    url_request_token = f'https://test.api.amadeus.com/v1/security/oauth2/token'
     headers1 = {
-        "Content-Type" : "application/x-www-form-urlencoded"
+        "Content-Type" : "application/x-www-form-urlencoded",
+        # "Authorization": "Bearer TOKEN"
     }
+    
     data = {
         "grant_type":"client_credentials",
         "client_id": API_KEY,
@@ -21,19 +23,23 @@ def get_access_token():
 
     return res.json()['access_token']
 
-def search_flights(depatureIataCode, arrievalIataCode, yyyymmddDate, adults=1):
+def search_flights(params):
     base_url = "https://test.api.amadeus.com/v2"
-    querystring = {
-        "originLocationCode": depatureIataCode,
-        "destinationLocationCode": arrievalIataCode,
-        "departureDate": yyyymmddDate,
-        "adults": adults,
-    }
+    
+    params['max'] = 3
+
     headers = {
-        "Authorization": f'Bearer {get_access_token}'
+        "Authorization": f'Bearer {get_access_token()}'
     }
 
-    response = requests.get(f'{base_url}/shopping/flight-offers', params=querystring, headers=headers)
-    data2 = response.json()
+    response = requests.get(f'{base_url}/shopping/flight-offers', params=params, headers=headers)
 
-    print(json.dumps(data2, indent=4, ensure_ascii=False))
+    return response.json()
+
+# if __name__ == '__main__':
+    # print(search_flights({
+    #     "originLocationCode": "NYC",
+    #     "destinationLocationCode": "LAX",
+    #     "departureDate": "2023-12-01",
+    #     "adults": 1
+    # }))

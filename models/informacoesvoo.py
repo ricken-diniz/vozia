@@ -3,13 +3,11 @@ from typing import Optional
 
 class InformacoesVoo(BaseModel):
     """Estrutura para armazenar informações de uma solicitação de voo."""
-    localdepartida: str = Field(description="A cidade ou local de partida do voo.")
-    localdedestino: str = Field(description="A cidade ou local de destino do voo.") # Corrigido de 'localdeorigem' para clareza
-    dataida: str = Field(description="A data de ida da viagem, no formato DD/MM/AAAA.")
-    datavolta: Optional[str] = Field(None, description="A data de volta da viagem, se especificada. Formato DD/MM/AAAA.")
-    orcamento: Optional[float] = Field(None, description="O orçamento máximo para a viagem.")
-    npassageiros: Optional[int] = Field(1, description="O número de passageiros para a viagem.")
-    linhaaerea: Optional[str] = Field(None, description="A companhia aérea de preferência, se mencionada.")
-    aeroporto: Optional[str] = Field(None, description="O aeroporto específico de partida ou chegada, se mencionado.")
-    quantidadedebagagem: Optional[int] = Field(None, description="A quantidade de bagagens a serem despachadas.")
-    horaefusohorario: Optional[str] = Field(None, description="A hora específica do voo e seu fuso horário, se mencionado.")
+    originLocationCode: str = Field(description="O código de 3 digitos do aeroporto de partida do voo seguindo o padrão IATA.")
+    destinationLocationCode: str = Field(description="O código de 3 digitos do aeroporto de destino do voo seguindo o padrão IATA.")
+    departureDate: str = Field(description="A data de ida da viagem, no formato YYYY-MM-DD.")
+    returnDate: Optional[str] = Field(None, description="A data de volta da viagem, se especificada. Formato YYYY-MM-DD.")
+    maxPrice: Optional[int] = Field(None, description="O orçamento máximo para a viagem.")
+    adults: int = Field(1, description="O número de passageiros para a viagem.")
+    currencyCode: str = Field('BRL', description="A moeda utilizada na transação.")
+    nonStop: Optional[str] = Field('true', description="Se o voo é sem paradas ('true') ou com escalas ('false').")

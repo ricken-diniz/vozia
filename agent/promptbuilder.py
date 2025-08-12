@@ -4,26 +4,28 @@ def prompt_template():
     prompt_template = """
     Você é um assistente especializado em extrair informações de voos a partir de um texto. Sua tarefa é analisar cuidadosamente a solicitação do usuário, resolver ambiguidade de locais, interpretar corretamente fusos horários e formatar a resposta em JSON conforme o modelo fornecido.
 
-    Hoje é {data}. Utilize essa informação para inferir datas relativas (como "semana que vem" ou "amanhã").
+    Hoje é {date}. Utilize essa informação para inferir datas relativas (como "semana que vem" ou "amanhã").
 
     ---
 
     📌 **Instruções de Interpretação:**
 
     1. **Local de partida e destino**:
-    - Sempre retorne **nomes de cidades**.
-    - Se o usuário mencionar um **estado**, **região** ou **país**, extraia a **cidade capital** ou a **cidade com o aeroporto mais relevante**.
-    - Se mencionar um **aeroporto específico**, extraia a **cidade** correspondente, e salve o nome do aeroporto no campo `aeroporto`.
+    - Sempre retorne **códigos dos aeroportos** seguindo o padrão IATA em 3 digitos.
+        Exemplo: `NYC`
+    - Se o usuário mencionar um **estado**, **região** ou **país**, extraia o **codigo do aeroporto referencia**.
 
-    2. **Fuso horário e horário do voo**:
-    - Se o usuário mencionar horário com fuso (ex: "horário de Brasília", "UTC-3", "horário da Índia"), converta e normalize no formato:
-        **`HH:MM UTC±HH:MM`**
-        Exemplo: `13:00 UTC+05:30`
-    - Se apenas um horário for dado sem fuso, use `UTC-03:00` como padrão (Brasil).
+    2. **Moeda**:
+    - Identifique a moeda (ex: "dólares", "euros") a partir das informações do texto, como o idioma e localizações, extraia a moeda e normalize no formato:
+        **`Código da Moeda`**
+        Exemplo: `USD`
+    - Se nenhuma moeda for mencionada, use `BRL` como padrão (Real Brasileiro).
 
-    3. **Orçamento, passageiros, bagagens**:
-    - Extraia números sempre que possível. Use o padrão se não for especificado.
+    3. **Orçamento, passageiros**:
+    - Extraia números inteiros sempre que possível. Se o número de passageiros não for especificado, por padrão é 1.
 
+    4. **Voo direto ou com escalas**:
+    - Se o usuário mencionar que deseja um voo direto, defina `semParada` como `'true'`. Caso contrário, defina como `'false'`.
     ---
 
     📦 **Formato de Resposta Esperado (em JSON):**
@@ -32,7 +34,7 @@ def prompt_template():
     ---
 
     📝 **Texto do Usuário:**
-    {solicitacao}
+    {input}
 
     ---
 
@@ -40,6 +42,6 @@ def prompt_template():
     """
 
     return PromptTemplate(
-        input_variables= ["solicitacao","format_instructions","data"],
+        input_variables= ["input","format_instructions","date"],
         template=prompt_template,
     )

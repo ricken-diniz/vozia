@@ -1,4 +1,4 @@
-from agent.agent import get_attributes
+from agent.extractor import get_attributes
 
 def test_agent():
     get_attributes('quero ir de natal para sao paulo na proxima sextafeira')
