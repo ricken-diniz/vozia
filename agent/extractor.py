@@ -26,7 +26,5 @@ def get_attributes(data: str):
     except Exception as e:
         raise Exception(f"Ocorreu um erro ao processar a solicitação: {e}")
 
-if __name__ == '__main__':
-    get_attributes('quero ir de natal para sao paulo na proxima sextafeira')
 
     

@@ -53,6 +53,4 @@ def stream_graph_updates(audio_path: str):
         for value in event.values():
             print("Assistant:", value)
 
-if __name__ == '__main__':
-    stream_graph_updates('audioteste.mp3')
 
