@@ -1,9 +1,8 @@
 from models.informacoes import InformacoesVoo, InformacoesHospedagem
 from datetime import date
-from agent.promptbuilder import prompt_template_flights, prompt_template_accommodation
+from models.promptbuilder import prompt_template_flights, prompt_template_accommodation
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_openai import ChatOpenAI
-import json
 import os
 from dotenv import load_dotenv
 load_dotenv()

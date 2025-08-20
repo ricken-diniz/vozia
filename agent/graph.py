@@ -4,9 +4,9 @@ from langgraph.graph.message import add_messages
 from typing_extensions import TypedDict
 from typing import Annotated
 from agent.extractor import get_attributes
-from transcritor import transcritor
-from amadeus import search_flights
-from airbnbmcpclient import airbnb_search
+from agent.transcritor import transcritor
+from agent.amadeus import search_flights
+from agent.airbnbmcpclient import airbnb_search
 import asyncio
 
 class State(TypedDict):
