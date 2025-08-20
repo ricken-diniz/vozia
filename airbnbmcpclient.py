@@ -1,10 +1,8 @@
-from dataclasses import Field
 import json
 from contextlib import AsyncExitStack
 
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
-import asyncio
 
 async def airbnb_search(search_query, max: int = 3) -> None:
     
