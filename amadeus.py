@@ -35,11 +35,3 @@ def search_flights(params):
     response = requests.get(f'{base_url}/shopping/flight-offers', params=params, headers=headers)
 
     return response.json()
-
-# if __name__ == '__main__':
-    # print(search_flights({
-    #     "originLocationCode": "NYC",
-    #     "destinationLocationCode": "LAX",
-    #     "departureDate": "2023-12-01",
-    #     "adults": 1
-    # }))

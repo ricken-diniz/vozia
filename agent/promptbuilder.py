@@ -1,6 +1,6 @@
 from langchain.prompts import PromptTemplate
 
-def prompt_template_voo():
+def prompt_template_flights():
     prompt_template = """
     Você é um assistente especializado em extrair informações de voos a partir de um texto. Sua tarefa é analisar cuidadosamente a solicitação do usuário, resolver ambiguidade de locais, interpretar corretamente fusos horários e formatar a resposta em JSON conforme o modelo fornecido.
 
@@ -46,9 +46,9 @@ def prompt_template_voo():
         template=prompt_template,
     )
 
-def prompt_template_hospedagem():
+def prompt_template_accommodation():
     prompt_template = """
-    Você é um assistente especializado em extrair informações de voos a partir de um texto. Sua tarefa é analisar cuidadosamente a solicitação do usuário, resolver ambiguidade de locais, interpretar corretamente fusos horários e formatar a resposta em JSON conforme o modelo fornecido.
+    Você é um assistente especializado em extrair informações de hospedagens a partir de um texto. Sua tarefa é analisar cuidadosamente a solicitação do usuário e formatar a resposta em JSON conforme o modelo fornecido.
 
     Hoje é {date}. Utilize essa informação para inferir datas relativas (como "semana que vem" ou "amanhã").
 

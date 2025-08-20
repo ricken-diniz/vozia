@@ -5,7 +5,7 @@ from typing import Annotated
 from agent.extractor import get_attributes
 from transcritor import transcritor
 from amadeus import search_flights
-from mcp_server_airbnb.airbnbmcpclient.MCPClient import airbnb_search
+from mcp_server_airbnb.airbnbmcpclient import airbnb_search
 
 class State(TypedDict):
     messages: Annotated[list, add_messages]
