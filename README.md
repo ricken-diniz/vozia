@@ -8,4 +8,25 @@ Ferramentas utilizadas:
 - Pydant, PromptTemplate
 - AmadeusAPI
 - Airbnb MCP Server
+- Estruturação de arquivos python em módulos
 - Requests
+
+Para rodar o projeto:
+
+- 1. Instale o ambiente NodeJS para rodar o cliente MCP do Airbnb
+```
+sudo apt install nodejs npm
+```
+
+- 2. Instale as dependências em seu ambiente virtual
+```
+npm install '@openbnb/mcp-server-airbnb'
+pip install -r requirements.txt
+```
+
+- 3. Rode o projeto
+```
+python3 -m agent.graph
+```
+
+Se preferir, acesse o *Jupyter Notebook* no [Google Colab](https://colab.research.google.com/drive/1AQs6YcckZ6arwl0TmTIxTVTnnOd2GPHC?usp=sharing)
