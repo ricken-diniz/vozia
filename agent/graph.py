@@ -5,6 +5,7 @@ from typing import Annotated
 from agent.extractor import get_attributes
 from transcritor import transcritor
 from amadeus import search_flights
+from mcp_server_airbnb.airbnbmcpclient.MCPClient import airbnb_search
 
 class State(TypedDict):
     messages: Annotated[list, add_messages]
@@ -17,10 +18,10 @@ def process_audio(state: State):
     return {"content": informations}
 
 def search_in_airbnb(state: State):
-    return {"airbnbContent": {}}
+    return {"airbnbContent": airbnb_search(state['content']['host'])}
 
 def search_in_flights(state: State):
-    return {"flightsContent": search_flights(state['content'])}
+    return {"flightsContent": search_flights(state['content']['flight'])}
 
 def get_response(state: State):
     return {'messages': [{

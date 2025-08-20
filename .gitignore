@@ -1,2 +1,15 @@
 venv
 .env
+.pytest_cache
+tests
+pytest.ini
+__init__.py
+__pycache__
+agent/__pycache__
+agent/__init__.py
+models/__pycache__
+models/__init__.py
+mcp-server-airbnb/__pycache__
+mcp-server-airbnb/__init__.py
+mcp-server-airbnb/node_modules
+node_modules
