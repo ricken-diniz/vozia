@@ -1,5 +1,3 @@
 # vozia
-
-<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/69256bc6-9c09-4054-a0d1-3ed1df946036" />
-
+<img width="2563" height="1211" alt="Gemini_Generated_Image_r1g3shr1g3shr1g3" src="https://github.com/user-attachments/assets/1d7c1ba6-f975-46d3-b53e-f4332285d9e0" />
 solução para realização de transações financeiras em Wallets a partir de comandos de voz, utiliznado agentes de IA, e os protocolos MCP e NWC.
