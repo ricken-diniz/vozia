@@ -22,6 +22,7 @@ sudo apt install nodejs npm
 ```
 npm install '@openbnb/mcp-server-airbnb'
 pip install -r requirements.txt
+pip install 'git+https://github.com/openai/whisper.git'
 ```
 
 - 3. Rode o projeto na raíz do diretório

@@ -1,8 +1,9 @@
-'git+https://github.com/openai/whisper.git'
+# 'git+https://github.com/openai/whisper.git'
 pydantic
 langchain_core
 langchain
 langchain_openai
+langgraph
 pytest
 ffmpeg
 mcp
