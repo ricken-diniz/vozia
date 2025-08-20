@@ -24,7 +24,7 @@ npm install '@openbnb/mcp-server-airbnb'
 pip install -r requirements.txt
 ```
 
-- 3. Rode o projeto
+- 3. Rode o projeto na raíz do diretório
 ```
 python3 -m agent.graph
 ```
