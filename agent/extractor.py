@@ -34,7 +34,8 @@ def get_attributes(data: str):
         
         dados_extraidos['flight'] = resultados_flights.model_dump()
         dados_extraidos['host'] = resultados_accommodation.model_dump()
-    
+
+        return dados_extraidos
     except Exception as e:
         raise Exception(f"Ocorreu um erro ao processar a solicitação: {e}")
 

@@ -1,3 +1,4 @@
+import json
 from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import add_messages
 from typing_extensions import TypedDict
@@ -5,7 +6,8 @@ from typing import Annotated
 from agent.extractor import get_attributes
 from transcritor import transcritor
 from amadeus import search_flights
-from mcp_server_airbnb.airbnbmcpclient import airbnb_search
+from airbnbmcpclient import airbnb_search
+import asyncio
 
 class State(TypedDict):
     messages: Annotated[list, add_messages]
@@ -18,7 +20,7 @@ def process_audio(state: State):
     return {"content": informations}
 
 def search_in_airbnb(state: State):
-    return {"airbnbContent": airbnb_search(state['content']['host'])}
+    return {"airbnbContent": asyncio.run(airbnb_search(state['content']['host']))}
 
 def search_in_flights(state: State):
     return {"flightsContent": search_flights(state['content']['flight'])}
@@ -52,6 +54,9 @@ graph = graph_builder.compile()
 def stream_graph_updates(audio_path: str):
     for event in graph.stream({"messages": [{'role': 'user', 'content': audio_path}]}):
         for value in event.values():
-            print("Assistant:", value)
+            print("Assistant:", json.dumps(value, indent=4), '/n')
+
+if __name__ == "__main__":
+    stream_graph_updates('audioteste.mp3')
 
 

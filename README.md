@@ -24,14 +24,7 @@ npm install '@openbnb/mcp-server-airbnb'
 pip install -r requirements.txt
 ```
 
-- 3. Instale o servidor MCP do Airbnb
-```
-git clone git@github.com:openbnb-org/mcp-server-airbnb.git
-mv mcp-server-airbnb/ mcp_server_airbnb/
-cp airbnbmcpclient.py mcp_server_airbnb/
-```
-
-- 4. Rode o projeto
+- 3. Rode o projeto
 ```
 python3 -m agent.graph
 ```
