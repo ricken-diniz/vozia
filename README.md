@@ -3,11 +3,9 @@
 Pesquisa de hospedagens e passagens aéreas a partir do comando de voz utilizando Inteligência Artificial.
 
 Ferramentas utilizadas:
-'''
 - Whisper
 - LangChain, LangGraph
 - Pydant, PromptTemplate
 - AmadeusAPI
 - Airbnb MCP Server
 - Requests
-'''
